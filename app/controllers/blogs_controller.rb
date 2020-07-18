@@ -3,6 +3,12 @@ class BlogsController < ApplicationController
   	@blogs = Blog.all
   end
 
+   def create
+  	blog = Blog.new(blog_params)
+  	blog.save
+  	redirect_to blog_path
+  end
+
   def show
   	@blog = Blog.find(params[:id])
   end
@@ -15,10 +21,10 @@ class BlogsController < ApplicationController
   	@blog = Blog.find(params[:id])
   end
 
-  def create
-  	blog = Blog.new(blog_params)
-  	blog.save
-  	redirect_to blog_path
+  def update
+  	blog = Blog.find(params[:id])
+  	blog.update(blog_params)
+  	redirect_to blog_path(blog)
   end
 
   private
