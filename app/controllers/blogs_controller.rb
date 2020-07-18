@@ -10,4 +10,7 @@ class BlogsController < ApplicationController
 
   def edit
   end
+
+  def create
+  end
 end
